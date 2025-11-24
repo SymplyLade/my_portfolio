@@ -29,7 +29,7 @@ const About = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
 
-    // Typewriter effect
+  
     let index = 0;
     const interval = setInterval(() => {
       setTypedText(longIntro.slice(0, index + 1));
@@ -45,7 +45,6 @@ const About = () => {
     return acc;
   }, {});
 
-  // AI Particle positions
   const particleCount = 15;
   const particles = Array.from({ length: particleCount }, (_, i) => {
     const angle = (i / particleCount) * 360;
@@ -57,7 +56,7 @@ const About = () => {
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-6 text-center">
 
-        {/* AI-Integrated Profile Picture */}
+
         <div className="relative w-44 h-44 mx-auto mb-6">
           <motion.img
             src="/IMG_9021.JPG"
@@ -75,14 +74,13 @@ const About = () => {
             }}
           />
 
-          {/* AI Glow */}
           <motion.div
             className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-green-400 opacity-50"
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
           />
 
-          {/* Rotating Orbits */}
+          
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
@@ -93,7 +91,7 @@ const About = () => {
             />
           ))}
 
-          {/* Floating AI Particles */}
+    
           {particles.map((p, i) => (
             <motion.div
               key={i}
@@ -119,17 +117,17 @@ const About = () => {
             />
           ))}
 
-          {/* AI Badge */}
+        
           <motion.div
             className="absolute bottom-0 right-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
             whileHover={{ scale: 1.2, rotate: 10 }}
             title="AI-integrated Developer"
           >
-            🤖
+        
           </motion.div>
         </div>
 
-        {/* About Heading */}
+      
         <motion.h2 
           className="text-4xl font-bold mb-6"
           data-aos="fade-up"
@@ -140,7 +138,7 @@ const About = () => {
           About Me
         </motion.h2>
 
-        {/* Dynamic About Me Text */}
+    
         <motion.p
           className="mb-8 text-gray-700 whitespace-pre-line text-left"
           data-aos="fade-up"
@@ -152,7 +150,7 @@ const About = () => {
           {typedText}
         </motion.p>
 
-        {/* Skills Section */}
+
         <h3 className="text-2xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="400">
           Skills & AI Insights
         </h3>
@@ -186,7 +184,7 @@ const About = () => {
           </div>
         ))}
 
-        {/* AI Tip Panel */}
+ 
         {activeTip && (
           <motion.div
             className="mb-6 text-gray-700 italic bg-gray-100 p-3 rounded shadow-md max-w-md mx-auto"
@@ -198,7 +196,7 @@ const About = () => {
           </motion.div>
         )}
 
-        {/* CV Buttons */}
+
         <div className="flex justify-center gap-4 mt-8" data-aos="zoom-in" data-aos-delay="600">
           <motion.a 
             href="/SymplyLade_CV.pdf" 

@@ -13,6 +13,6 @@ try:
     server.login(SMTP_EMAIL, SMTP_PASSWORD)
     server.sendmail(SMTP_EMAIL, SMTP_EMAIL, msg.as_string())
     server.quit()
-    # print("Email sent successfully!")
+  
 except Exception as e:
     print(f"Error: {e}")
