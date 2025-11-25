@@ -49,21 +49,22 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
+    <nav className="bg-white shadow-md w-full z-50">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-
-      
+  
         <div className="flex items-center">
           <DLogo className="mr-2" />
           <LogoText className="h-8" />
         </div>
 
+     
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-black hover:text-gray-700 transition">Home</Link>
           <Link to="/about" className="text-black hover:text-gray-700 transition">About</Link>
           <Link to="/projects" className="text-black hover:text-gray-700 transition">Projects</Link>
           <Link to="/contact" className="text-black hover:text-gray-700 transition">Contact</Link>
 
+     
           <div className="flex space-x-4 text-lg">
             <a href="https://github.com/SymplyLade" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
               <FaGithub />
@@ -77,11 +78,12 @@ const Navbar = () => {
           </div>
         </div>
 
-  
         <div className="md:hidden text-black text-2xl" onClick={() => setOpen(!open)}>
           {open ? <FaTimes /> : <FaBars />}
         </div>
       </div>
+
+
       {open && (
         <div className="md:hidden bg-white shadow-md px-4 py-4 space-y-4">
           <Link to="/" className="block text-black" onClick={() => setOpen(false)}>Home</Link>
