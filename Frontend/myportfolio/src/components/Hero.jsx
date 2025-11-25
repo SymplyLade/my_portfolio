@@ -135,7 +135,7 @@ const Hero = () => {
             <Link to="/about">
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255, 0, 128, 0.6)" }}
-                className="bg-gradient-to-r from-purple-700 via-pink-600 to-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition"
+                className="bg-gradient-to-r from-purple-700 via-pink-600 to-orange-500 text-black px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition"
               >
                 Let's Get Started 
               </motion.button>
