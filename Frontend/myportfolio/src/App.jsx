@@ -11,7 +11,7 @@ import BackToTop from "./components/BackToTop";
 function App() {
   return (
     <Router>
-      <div className="font-poppins text-gray-900 scroll-smooth">
+      <div className="font-poppins text-gray-900 scroll-smooth pt-20">
         <Navbar />
         <Routes>
           <Route path="/" element={<Hero />} />

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-
+import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes } from "react-icons/fa";
 
 const DLogo = ({ className }) => (
   <svg
@@ -12,25 +11,17 @@ const DLogo = ({ className }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="50" cy="50" r="48" stroke="url(#grad)" strokeWidth="4" fill="none" />
+    <circle cx="50" cy="50" r="48" stroke="black" strokeWidth="3" fill="none" />
     <path
       d="M35 25 L60 25 C75 25, 75 50, 60 50 L35 50 M60 50 C75 50, 75 75, 60 75 L35 75"
-      stroke="url(#grad)"
-      strokeWidth="6"
+      stroke="black"
+      strokeWidth="4"
       strokeLinecap="round"
       strokeLinejoin="round"
       fill="none"
     />
-    <defs>
-      <linearGradient id="grad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#8b5cf6" />
-        <stop offset="0.5" stopColor="#ec4899" />
-        <stop offset="1" stopColor="#f97316" />
-      </linearGradient>
-    </defs>
   </svg>
 );
-
 
 const LogoText = ({ className }) => (
   <svg
@@ -46,55 +37,73 @@ const LogoText = ({ className }) => (
       y="75"
       fontFamily="Poppins, sans-serif"
       fontWeight="700"
-      fontSize="70"
-      fill="url(#grad)"
+      fontSize="60"
+      fill="black"
     >
       SymplyLade
     </text>
-    <defs>
-      <linearGradient id="grad" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#8b5cf6" />
-        <stop offset="0.5" stopColor="#ec4899" />
-        <stop offset="1" stopColor="#f97316" />
-      </linearGradient>
-    </defs>
   </svg>
 );
 
-
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <nav className="bg-gradient-to-r from-purple-700 via-pink-600 to-orange-500 shadow-md fixed w-full z-50">
-      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
-   
+    <nav className="bg-white shadow-md fixed w-full z-50">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+
+      
         <div className="flex items-center">
           <DLogo className="mr-2" />
-          <LogoText className="h-10" />
+          <LogoText className="h-8" />
         </div>
 
+        <div className="hidden md:flex items-center space-x-6">
+          <Link to="/" className="text-black hover:text-gray-700 transition">Home</Link>
+          <Link to="/about" className="text-black hover:text-gray-700 transition">About</Link>
+          <Link to="/projects" className="text-black hover:text-gray-700 transition">Projects</Link>
+          <Link to="/contact" className="text-black hover:text-gray-700 transition">Contact</Link>
 
-        <div className="flex items-center space-x-6">
-          <Link to="/" className="hover:text-white transition text-white">Home</Link>
-          <Link to="/about" className="hover:text-white transition text-white">About</Link>
-          <Link to="/projects" className="hover:text-white transition text-white">Projects</Link>
-          <Link to="/contact" className="hover:text-white transition text-white">Contact</Link>
-
-          <div className="flex space-x-3 ml-4">
-            <a href="https://github.com/SymplyLade" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition text-lg">
+          <div className="flex space-x-4 text-lg">
+            <a href="https://github.com/SymplyLade" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/gbemisola-victoria-458715382" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition text-lg">
+            <a href="https://linkedin.com/in/gbemisola-victoria-458715382" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
               <FaLinkedin />
             </a>
-            <a href="https://twitter.com/MirahJosh4" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition text-lg">
+            <a href="https://twitter.com/MirahJosh4" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
               <FaTwitter />
             </a>
           </div>
         </div>
+
+  
+        <div className="md:hidden text-black text-2xl" onClick={() => setOpen(!open)}>
+          {open ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
+      {open && (
+        <div className="md:hidden bg-white shadow-md px-4 py-4 space-y-4">
+          <Link to="/" className="block text-black" onClick={() => setOpen(false)}>Home</Link>
+          <Link to="/about" className="block text-black" onClick={() => setOpen(false)}>About</Link>
+          <Link to="/projects" className="block text-black" onClick={() => setOpen(false)}>Projects</Link>
+          <Link to="/contact" className="block text-black" onClick={() => setOpen(false)}>Contact</Link>
+
+          <div className="flex space-x-4 text-lg mt-2">
+            <a href="https://github.com/SymplyLade" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
+              <FaGithub />
+            </a>
+            <a href="https://linkedin.com/in/gbemisola-victoria-458715382" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
+              <FaLinkedin />
+            </a>
+            <a href="https://twitter.com/MirahJosh4" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
+              <FaTwitter />
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
-
